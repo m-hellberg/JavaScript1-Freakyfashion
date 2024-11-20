@@ -5,7 +5,17 @@ const Database = require('better-sqlite3');
 const db = new Database('./db/freakyfashion.db', { verbose: console.log });
 const path = require('path');
 
+// För Multer-konfigurationen
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/images');
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  }
+});
 
+const upload = multer({ storage: storage });
 
 router.get('/', function (req, res) {
   res.render('admin/products/new', { title: 'Administration' });
