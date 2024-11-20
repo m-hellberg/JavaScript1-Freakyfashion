@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/admin.css" />
+    <script
+      src="https://kit.fontawesome.com/2c28b0065e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/javascripts/new.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="admin-header">
+        <h1><%= title %></h1>
+      </div>
+    </header>
+
+    <div class="admin-container">
+      <aside class="admin-menu">
+        <nav>
+          <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="/admin/products">Produkter</a></li>
+            <li><a href="#">Orderhantering</a></li>
+            <li><a href="#">Analysdata</a></li>
+            <li><a href="#">Inställningar</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="admin-content">
+        <div class="content-header">
+          <h2>Ny produkt</h2>
+        </div>
+
+        <div class="new-product-data">
+          <form enctype="multipart/form-data">
+            <label for="name">Namn</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Ange namn"
+              required
+              maxlength="25"
+            />
+
+            <label for="description">Beskrivning</label>
+            <textarea
+              type="text"
+              name="description"
+              id="description"
+              placeholder="Ange beskrivning"
+              required
+            ></textarea>
+
+            <label for="image">Bild</label>
+            <input
+              type="file"
+              name="image"
+              id="image"
+              accept=".png, .jpeg, .jpg"
+              required
+            />
+
+            <label for="brand">Märke</label>
+            <input
+              type="text"
+              name="brand"
+              id="brand"
+              placeholder="Ange märke"
+              required
+              maxlength="20"
+            />
+
+            <label for="sku">SKU</label>
+            <input
+              type="text"
+              name="sku"
+              id="sku"
+              placeholder="Ange SKU"
+              required
+              maxlength="10"
+              pattern="^[A-Za-z]{3}\d{3}$"
+              title="Formatet ska vara XXXYYY. Exempel: AAA111"
+            />
+
+            <label for="price">Pris</label>
+            <input
+              type="text"
+              name="price"
+              id="price"
+              placeholder="Ange pris"
+              required
+              maxlength="10"
+            />
+
+            <label for="publicationDate">Publiceringsdatum</label>
+            <input
+              type="date"
+              name="publicationDate"
+              id="publicationDate"
+              required
+            />
+
+            <button type="submit">Lägg till</button>
+          </form>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

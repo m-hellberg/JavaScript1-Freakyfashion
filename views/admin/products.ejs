@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/admin.css" />
+    <script
+      src="https://kit.fontawesome.com/2c28b0065e.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="/javascripts/products.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <div class="admin-header">
+        <h1><%= title %></h1>
+      </div>
+    </header>
+
+    <div class="admin-container">
+      <aside class="admin-menu">
+        <nav>
+          <ul>
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="/admin/products">Produkter</a></li>
+            <li><a href="#">Orderhantering</a></li>
+            <li><a href="#">Analysdata</a></li>
+            <li><a href="#">Inställningar</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="admin-content">
+        <div class="content-header">
+          <h2>Produkter</h2>
+          <div class="button-group">
+            <a href="#" class="load-products-button">Ladda produkter</a>
+            <a href="/admin/products/new" class="new-product-button"
+              >Ny produkt</a
+            >
+          </div>
+        </div>
+
+        <table class="product-data-table">
+          <thead>
+            <tr>
+              <th>Namn</th>
+              <th>SKU</th>
+              <th>Pris</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="product-table-body"></tbody>
+        </table>
+      </main>
+    </div>
+  </body>
+</html>

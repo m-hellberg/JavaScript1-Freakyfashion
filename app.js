@@ -3,8 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const Database = require('better-sqlite3');
+const db = new Database('./db/freakyfashion.db', { verbose: console.log });
 
 var indexRouter = require('./routes/index');
+var checkoutRouter = require('./routes/checkout');
+var productDetailsRouter = require('./routes/product-details');
+var productsRouter = require('./routes/admin/products');
+var newRouter = require('./routes/admin/products/new');
+var searchRouter = require('./routes/search');
 
 var app = express();
 
@@ -19,6 +26,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+app.use('/checkout', checkoutRouter);
+app.use('/products', productDetailsRouter);
+app.use('/admin/products', productsRouter);
+app.use('/admin/products/new', newRouter);
+app.use('/search', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -37,3 +49,4 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+

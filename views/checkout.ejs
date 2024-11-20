@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%= title %></title>
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="icons/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="stylesheets/style.css" />
     <script
       src="https://kit.fontawesome.com/2c28b0065e.js"
@@ -59,91 +59,172 @@
           </ul>
         </nav>
       </header>
+
       <main>
-        <div class="hero-container">
-          <img src="images/hero-image.png" alt="" class="heroplaceholder" />
-          <div class="hero-text">
-            <h1>Mode för dig som vågar sticka ut</h1>
-            <p>
-              Släpp loss din unika stil och uttryck vem du verkligen är. Här
-              hittar du modet som bryter gränser och ger dig friheten att vara
-              ditt galnaste, coolaste jag. Utforska våra kollektioner och hitta
-              kläderna som matchar din unika vibe.
-            </p>
-            <p>Unleash your inner freak!</p>
-          </div>
-        </div>
-        <div class="spot-container">
-          <a href="#" class="spot">
-            <img
-              src="images/spot-image-1.png"
-              alt="Spot image 1"
-              class="spot-image"
-            />
-            <div class="spot-text">KARAKTÄR</div>
-          </a>
-          <a href="#" class="spot">
-            <img
-              src="images/spot-image-2.png"
-              alt="Spot image 2"
-              class="spot-image"
-            />
-            <div class="spot-text">LIVSSTIL</div>
-          </a>
-          <a href="#" class="spot">
-            <img
-              src="images/spot-image-3.png"
-              alt="Spot image 3"
-              class="spot-image"
-            />
-            <div class="spot-text">ATTITYD</div>
-          </a>
-        </div>
-
-        <div class="product-container">
-          <% products.forEach(product => { %>
-          <a href="/products/<%= product.slug %>" class="product-card">
-            <% if (product.isNew) { %>
-            <div class="new-badge">Nyhet</div>
-            <% } %>
-            <img
-              src="<%= product.image %>"
-              alt="<%= product.name %>"
-              class="product-image"
-            />
-            <div class="product-favorite-icon">
-              <i class="fa-regular fa-heart"></i>
-            </div>
-            <div class="product-info">
-              <p class="product-title">
-                <%= product.name %>
-                <span class="product-price"><%= product.price %> SEK</span>
+        <div class="checkout-container">
+          <h1>Kassan</h1>
+          <div class="order-summary">
+            <div class="order-item-1">
+              <p class="summary-product-title">
+                1 x Svart T-shirt Logga
+                <span class="summary-order-price">199 SEK</span>
               </p>
-              <p class="product-brand"><%= product.brand %></p>
+              <p class="-summary-item-price">199 SEK</p>
             </div>
-          </a>
-          <% }) %>
+            <div class="order-item-2">
+              <p class="summary-product-title">
+                2 x Vit T-shirt <span class="summary-order-price">398 SEK</span>
+              </p>
+              <p class="-summary-item-price">199 SEK</p>
+            </div>
+            <div class="order-item-3">
+              <p class="summary-product-title">
+                1 x Vit Hoodie Print
+                <span class="summary-order-price">299 SEK</span>
+              </p>
+              <p class="-summary-item-price">299 SEK</p>
+            </div>
+          </div>
+
+          <table class="order-summary-table">
+            <thead>
+              <tr>
+                <th>Produkt</th>
+                <th>Antal</th>
+                <th>Pris</th>
+                <th>Totalt</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Svart T-shirt Logga</td>
+                <td>1</td>
+                <td>199 SEK</td>
+                <td>199 SEK</td>
+              </tr>
+              <tr>
+                <td>Vit T-shirt</td>
+                <td>2</td>
+                <td>199 SEK</td>
+                <td>398 SEK</td>
+              </tr>
+              <tr>
+                <td>Vit Hoodie Print</td>
+                <td>1</td>
+                <td>299 SEK</td>
+                <td>299 SEK</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class="info-container">
-          <div class="info-item">
-            <i class="fa-solid fa-earth-americas"></i>
-            <p>Gratis frakt och returer</p>
-          </div>
-          <div class="info-item">
-            <i class="fa-solid fa-plane"></i>
-            <p>Expressfrakt</p>
-          </div>
-          <div class="info-item">
-            <i class="fa-solid fa-shield-halved"></i>
-            <p>Säkra betalningar</p>
-          </div>
-          <div class="info-item">
-            <i class="fa-regular fa-face-smile"></i>
-            <p>Nyheter varje dag</p>
-          </div>
+        <div class="customer-data">
+          <h2>Kunduppgifter</h2>
+          <form action="#">
+            <div>
+              <label for="firstname">Namn</label>
+              <input
+                type="text"
+                name="firstname"
+                id="firstname"
+                placeholder="Ange namn"
+                required
+                maxlength="30"
+              />
+            </div>
+
+            <div>
+              <label for="lastname">Efternamn</label>
+              <input
+                type="text"
+                name="lastname"
+                id="lastname"
+                placeholder="Ange efternamn"
+                required
+                maxlength="30"
+              />
+            </div>
+
+            <div>
+              <label for="e-mail">E-post</label>
+              <input
+                type="text"
+                name="e-mail"
+                id="e-mail"
+                placeholder="Ange E-post"
+                required
+                maxlength="50"
+              />
+            </div>
+
+            <div class="address-container">
+              <p>Adress</p>
+              <div>
+                <label for="street">Gata</label>
+                <input
+                  type="text"
+                  name="street"
+                  id="street"
+                  placeholder="Ange gata"
+                  required
+                  maxlength="50"
+                />
+              </div>
+              <div>
+                <label for="postalcode">Postnummer</label>
+                <input
+                  type="text"
+                  name="postalcode"
+                  id="postalcode"
+                  placeholder="Ange postnummer"
+                  required
+                  maxlength="10"
+                />
+              </div>
+
+              <div>
+                <label for="city">Stad</label>
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  placeholder="Ange stad"
+                  required
+                  maxlength="25"
+                />
+              </div>
+            </div>
+
+            <div class="newsletter">
+              <input type="checkbox" name="newsletter" id="newsletter" />
+              <label for="newsletter">Jag vill ta emot nyhetsbrev</label>
+            </div>
+
+            <div class="button-container">
+              <button type="submit" class="buy-button">Köp</button>
+            </div>
+          </form>
         </div>
       </main>
+
+      <div class="checkout-info-container">
+        <div class="info-item">
+          <i class="fa-solid fa-earth-americas"></i>
+          <p>Gratis frakt och returer</p>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-plane"></i>
+          <p>Expressfrakt</p>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <p>Säkra betalningar</p>
+        </div>
+        <div class="info-item">
+          <i class="fa-regular fa-face-smile"></i>
+          <p>Nyheter varje dag</p>
+        </div>
+      </div>
 
       <div class="accordion" id="accordionExample">
         <div class="accordion-item">
