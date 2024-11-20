@@ -6,6 +6,7 @@ const db = new Database('./db/freakyfashion.db', { verbose: console.log });
 const path = require('path');
 
 
+
 router.get('/', function (req, res) {
   res.render('admin/products/new', { title: 'Administration' });
 });
@@ -39,6 +40,7 @@ router.post('/', upload.single('image'), function (req, res) {
     }
   }
 });
+
 
 
 module.exports = router;
