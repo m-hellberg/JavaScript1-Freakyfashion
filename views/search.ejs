@@ -60,6 +60,44 @@
         </nav>
       </header>
       <main>
+        <% if (products.length > 0) { %>
+        <div class="search-results-info">
+          <p>
+            Hittade <strong><%= productCount %></strong> <%= productCount === 1
+            ? 'produkt' : 'produkter' %>
+          </p>
+        </div>
+        <% } else { %>
+        <div class="search-results-info">
+          <p>Inga produkter hittades</p>
+        </div>
+        <% } %>
+
+        <div class="product-container">
+          <% products.forEach(product => { %>
+          <a href="/products/<%= product.slug %>" class="product-card">
+            <% if (product.isNew) { %>
+            <div class="new-badge">Nyhet</div>
+            <% } %>
+            <img
+              src="<%= product.image %>"
+              alt="<%= product.name %>"
+              class="product-image"
+            />
+            <div class="product-favorite-icon">
+              <i class="fa-regular fa-heart"></i>
+            </div>
+            <div class="product-info">
+              <p class="product-title">
+                <%= product.name %>
+                <span class="product-price"><%= product.price %> SEK</span>
+              </p>
+              <p class="product-brand"><%= product.brand %></p>
+            </div>
+          </a>
+          <% }) %>
+        </div>
+
         <div class="info-container">
           <div class="info-item">
             <i class="fa-solid fa-earth-americas"></i>
