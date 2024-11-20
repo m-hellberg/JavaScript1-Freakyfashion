@@ -41,6 +41,15 @@ router.post('/', upload.single('image'), function (req, res) {
   }
 });
 
-
+function generateSlug(name) {
+  return name
+      .trim()                          
+      .toLowerCase()  
+      .replace(/å/g, 'a')
+      .replace(/ä/g, 'a') 
+      .replace(/ö/g, 'o')
+      .replace(/\s+/g, '-')   
+      .replace(/[^a-z0-9\-]/g, '');   
+}
 
 module.exports = router;
